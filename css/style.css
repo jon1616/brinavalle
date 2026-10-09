@@ -1,0 +1,53 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #07040c;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body { touch-action: none; -webkit-user-select: none; user-select: none; }
+#screen {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  box-shadow: 0 0 60px rgba(120, 60, 160, 0.25);
+}
+/* Ciclo 11: schermo a due livelli (js/display.js). La pixel art la ingrandisce il browser. */
+#stage { position: relative; line-height: 0; box-shadow: 0 0 60px rgba(120, 60, 160, 0.25); }
+#stage #screen { position: relative; box-shadow: none; }
+#pixels {
+  position: absolute; left: 0; top: 0; width: 100%; height: 100%;
+  image-rendering: pixelated; image-rendering: crisp-edges;
+}
+
+/* ---------------- comandi touch (Ciclo 2) ---------------- */
+@media (orientation: portrait) { body.touchmode { align-items: flex-start; padding-top: 10px; } }
+#touch { position: fixed; left: 0; right: 0; bottom: 0; height: 200px; pointer-events: none; z-index: 5; }
+#touch[hidden] { display: none; }
+#stick, #touch button { pointer-events: auto; touch-action: none; }
+#stick {
+  position: absolute; left: 22px; bottom: 26px; width: 140px; height: 140px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06), rgba(255,255,255,0.14));
+  border: 2px solid rgba(232,216,176,0.35);
+}
+#knob {
+  position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%;
+  background: rgba(232,216,176,0.45); border: 2px solid rgba(255,240,200,0.6);
+}
+#tbtns { position: absolute; right: 20px; bottom: 30px; display: flex; gap: 16px; align-items: flex-end; }
+.tb {
+  width: 84px; height: 84px; border-radius: 50%; border: 2px solid rgba(255,216,112,0.7);
+  background: rgba(74,58,106,0.55); color: #ffd870; font: 28px "Press Start 2P", monospace;
+}
+.tb.small { width: 64px; height: 64px; font-size: 20px; margin-bottom: 40px; border-color: rgba(200,200,255,0.7); color: #d0d0ff; }
+#tstart {
+  position: absolute; right: 24px; top: -18px; padding: 8px 12px; border-radius: 8px;
+  border: 2px solid rgba(232,216,176,0.5); background: rgba(20,15,28,0.6); color: #e8d8b0; font: 10px "Press Start 2P", monospace;
+}
+#touch button.on { background: rgba(255,216,112,0.45); color: #fff; }
+
+/* Ciclo 11: il pulsante ⇄ sta sopra il pulsante B, così sugli schermi stretti non copre la levetta */
+#tbtns .tb[data-a="swap"] { position: absolute; right: 106px; bottom: 116px; width: 52px; height: 52px; font-size: 18px; margin: 0; }

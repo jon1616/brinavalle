@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brinavalle — Il Cuore di Vesper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=c57d">
+</head>
+<body>
+  <canvas id="screen" width="768" height="576" aria-label="Brinavalle, gioco d'avventura"></canvas>
+  <!-- comandi touch: compaiono solo su dispositivi touch -->
+  <div id="touch" hidden>
+    <div id="stick"><div id="knob"></div></div>
+    <div id="tbtns">
+      <button class="tb small" data-a="swap" aria-label="Cambia oggetto">⇄</button>
+      <button class="tb small" data-a="item" aria-label="Oggetto">B</button>
+      <button class="tb" data-a="action" aria-label="Azione">A</button>
+    </div>
+    <button id="tstart" data-a="start" aria-label="Menu">MENU</button>
+  </div>
+  <!-- Ordine di caricamento importante: ogni file usa i precedenti -->
+  <script src="js/audio.js?v=c57d"></script>
+  <script src="js/gfx.js?v=c57d"></script>
+  <script src="js/gfx2.js?v=c57d"></script>
+  <script src="js/gfx3.js?v=c57d"></script>
+  <script src="js/gfx4.js?v=c57d"></script>
+  <script src="js/world.js?v=c57d"></script>
+  <script src="js/entities.js?v=c57d"></script>
+  <script src="js/entities2.js?v=c57d"></script>
+  <script src="js/entities3.js?v=c57d"></script>
+  <script src="js/entities4.js?v=c57d"></script>
+  <script src="js/game.js?v=c57d"></script>
+  <script src="js/display.js?v=c57d"></script>
+  <script src="js/story.js?v=c57d"></script>
+  <script src="js/feel.js?v=c57d"></script>
+  <script src="js/fishing.js?v=c57d"></script>
+  <script src="js/medals.js?v=c57d"></script>
+  <script src="js/rush.js?v=c57d"></script>
+  <script src="js/frost.js?v=c57d"></script>
+  <script src="js/journal.js?v=c57d"></script>
+  <script src="js/fairness.js?v=c57d"></script>
+  <script src="js/sunken.js?v=c57d"></script>
+  <script src="js/trade.js?v=c57d"></script>
+  <script src="js/fox.js?v=c57d"></script>
+  <script src="js/bestiary.js?v=c57d"></script>
+  <script src="js/sky.js?v=c57d"></script>
+  <script src="js/weather.js?v=c57d"></script>
+  <script src="js/roots.js?v=c57d"></script>
+  <script src="js/dad.js?v=c57d"></script>
+  <script src="js/party.js?v=c57d"></script>
+  <script src="js/walk.js?v=c57d"></script>
+  <script src="js/waypoint.js?v=c57d"></script>
+  <script src="js/waykeys.js?v=c57d"></script>
+  <script src="js/north.js?v=c57d"></script>
+  <script src="js/tower.js?v=c57d"></script>
+  <script src="js/amber.js?v=c57d"></script>
+  <script src="js/observatory.js?v=c57d"></script>
+  <script src="js/coast.js?v=c57d"></script>
+  <script src="js/abyss.js?v=c57d"></script>
+  <script src="js/seabed.js?v=c57d"></script>
+  <script src="js/tidetemple.js?v=c57d"></script>
+  <script src="js/earth.js?v=c57d"></script>
+  <script src="js/heartearth.js?v=c57d"></script>
+  <script src="js/wind.js?v=c57d"></script>
+  <script src="js/windpalace.js?v=c57d"></script>
+  <script src="js/closure.js?v=c57d"></script>
+  <script src="js/chatter.js?v=c57d"></script>
+  <script src="js/chatter2.js?v=c57d"></script>
+  <script src="js/resume.js?v=c57d"></script>
+  <!-- harness di test (solo con index.html?test): vedi tests/harness.js -->
+  <script>if (/[?&]test(&|=|$)/.test(location.search)) { const v = Date.now(); document.write('<script src="tests/harness.js?v=' + v + '"><\/script><script src="tests/route.js?v=' + v + '"><\/script><script src="tests/cycle4.js?v=' + v + '"><\/script><script src="tests/duel.js?v=' + v + '"><\/script><script src="tests/duel6.js?v=' + v + '"><\/script><script src="tests/honest.js?v=' + v + '"><\/script><script src="tests/rush9.js?v=' + v + '"><\/script><script src="tests/frost11.js?v=' + v + '"><\/script><script src="tests/journal13.js?v=' + v + '"><\/script><script src="tests/fair15.js?v=' + v + '"><\/script><script src="tests/audit.js?v=' + v + '"><\/script><script src="tests/cycle10.js?v=' + v + '"><\/script><script src="tests/cycle12.js?v=' + v + '"><\/script><script src="tests/cycle14.js?v=' + v + '"><\/script><script src="tests/cycle16.js?v=' + v + '"><\/script><script src="tests/sunken17.js?v=' + v + '"><\/script><script src="tests/fox19.js?v=' + v + '"><\/script><script src="tests/trade18.js?v=' + v + '"><\/script><script src="tests/bestiary20.js?v=' + v + '"><\/script><script src="tests/sky21.js?v=' + v + '"><\/script><script src="tests/weather22.js?v=' + v + '"><\/script><script src="tests/roots23.js?v=' + v + '"><\/script><script src="tests/dad24.js?v=' + v + '"><\/script><script src="tests/party25.js?v=' + v + '"><\/script><script src="tests/walk26.js?v=' + v + '"><\/script><script src="tests/way27.js?v=' + v + '"><\/script><script src="tests/waykeys28.js?v=' + v + '"><\/script><script src="tests/play29.js?v=' + v + '"><\/script><script src="tests/north30.js?v=' + v + '"><\/script><script src="tests/tower31.js?v=' + v + '"><\/script><script src="tests/amber32.js?v=' + v + '"><\/script><script src="tests/obs33.js?v=' + v + '"><\/script><script src="tests/coast34.js?v=' + v + '"><\/script><script src="tests/abyss35.js?v=' + v + '"><\/script><script src="tests/seabed36.js?v=' + v + '"><\/script><script src="tests/temple37.js?v=' + v + '"><\/script><script src="tests/earth38.js?v=' + v + '"><\/script><script src="tests/heart39.js?v=' + v + '"><\/script><script src="tests/wind40.js?v=' + v + '"><\/script><script src="tests/palace41.js?v=' + v + '"><\/script><script src="tests/polish42.js?v=' + v + '"><\/script><script src="tests/polish43.js?v=' + v + '"><\/script><script src="tests/polish44.js?v=' + v + '"><\/script><script src="tests/polish45.js?v=' + v + '"><\/script><script src="tests/polish46.js?v=' + v + '"><\/script><script src="tests/polish47.js?v=' + v + '"><\/script><script src="tests/polish48.js?v=' + v + '"><\/script><script src="tests/polish49.js?v=' + v + '"><\/script><script src="tests/polish51.js?v=' + v + '"><\/script><script src="tests/polish52.js?v=' + v + '"><\/script><script src="tests/polish53.js?v=' + v + '"><\/script><script src="tests/polish54.js?v=' + v + '"><\/script><script src="tests/polish55.js?v=' + v + '"><\/script><script src="tests/polish56.js?v=' + v + '"><\/script><script src="tests/polish57.js?v=' + v + '"><\/script>'); }</script>
+  <script>if (/[?&]hand(&|=|$)/.test(location.search)) document.write('<script src="tests/hand29.js?v=' + Date.now() + '"><\/script>');   // Ciclo 29: strumenti per giocare a mano (vedi il file)</script>
+</body>
+</html>
